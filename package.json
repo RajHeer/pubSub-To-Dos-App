@@ -1,0 +1,15 @@
+{
+  "name": "pubsub-to-dos-app",
+  "version": "1.0.0",
+  "description": "To_dos_App",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Raj_Heer",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.80.0",
+    "webpack-cli": "^5.0.1"
+  }
+}

@@ -1,0 +1,1 @@
+document.body.appendChild(function(){const e=document.createElement("div");return e.innerText="Module loaded",e}());
