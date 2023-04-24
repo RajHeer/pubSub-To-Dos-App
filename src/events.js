@@ -1,24 +1,27 @@
-const events = (() => {
-    const events = {};
-
-    function on(eventName, callBack) {
-        events[eventName] = events[eventName] || [];
-        events[eventName].push(callBack);
+class Events {
+    constructor() {
+        this.events = {};
     }
 
-    function trigger(eventName, data) {
-        if (events[eventName]) {
-            events[eventName].forEach(func => {
+    on(eventName, callBack) {
+        this.events[eventName] = this.events[eventName] || [];
+        this.events[eventName].push(callBack);
+    }
+
+    trigger(eventName, data) {
+        if (this.events[eventName]) {
+            this.events[eventName].forEach(func => {
                 func(data);
             });
         }
-        console.log(events);
     }
 
-    return {
-        on,
-        trigger
+    list() {
+        console.log(this.events);
     }
-})();
+};
 
-export default events;
+const event = new Events();
+
+export default event;
+
