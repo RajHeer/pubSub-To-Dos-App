@@ -1,3 +1,4 @@
+import "./styles.css";
 import event from "./events";
 import newData from "./newData";
 import headerWithNav from "./headerWithNav";
