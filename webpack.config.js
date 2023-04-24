@@ -7,7 +7,7 @@ module.exports = {
   entry: {
     index: "./src/index.js",
     events: "./src/events.js",
-    newData: "./src/events.js"
+    newData: "./src/newData.js"
   },
   devtool: "inline-source-map",
   plugins: [
