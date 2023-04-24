@@ -1,13 +1,16 @@
-import event from "./events"
-import newData from "./newData"
+import event from "./events";
+import newData from "./newData";
+import headerWithNav from "./headerWithNav";
 
 function component() {
-    const element = document.createElement("div");
-  
-    element.innerText = "Module loaded";
-  
-    return element;
-  }
+
+    const main = document.createElement("main");
+    
+    main.appendChild( headerWithNav() );
+    
+    return main;
+
+}
   
 document.body.appendChild(component());
 
