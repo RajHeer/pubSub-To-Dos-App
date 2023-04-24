@@ -8,9 +8,10 @@ module.exports = {
     index: "./src/index.js",
     events: "./src/events.js",
     newData: "./src/newData.js",
-    headerWithNav: "./src/headerWithNav",
-    projects: "./src/projects",
-    tasks: "./src/tasks",
+    headerWithNav: "./src/headerWithNav.js",
+    projects: "./src/projects.js",
+    tasks: "./src/tasks.js",
+    footer: "./src/footer.js",
   },
   devtool: "inline-source-map",
   plugins: [

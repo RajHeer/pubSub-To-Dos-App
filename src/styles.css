@@ -27,7 +27,7 @@ header {
 }
 
 h1 {
-   
+   text-decoration: underline;
 }
 
 #icon {
@@ -79,11 +79,22 @@ nav > div {
     border-top: 28.8675px solid orange;
   }
 
-section {
-    background-color: rgba(146, 39, 94, 0.3);
-    width: 90%;
-    max-width: 450px;
-    margin: 15px auto;
-    padding: 15px;
-    font-size: 1.1rem;
+footer {
+    position: sticky;
+    top: 90vh;
+    margin: 0 5vw 0 auto;
+    height: 15vh;
+    max-width: 1200px;
+    display: flex;
+    justify-content:flex-end; 
+    align-items: center;
 }
+
+#add_circle {
+    width: 50px;
+    height: 50px;
+    background: orange;
+    border-radius: 50%;
+    font-size: 3.5rem;
+    line-height: 1.6rem;
+  }

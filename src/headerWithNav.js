@@ -14,7 +14,7 @@ export default function headerWithNav() {
       const logo = document.createElement("img");
       const nav = document.createElement("nav");
     
-    h1.innerText = "Bee Buzzy";
+    h1.innerText = "Bee Buzzy.";
     logo.src = honeycomb;
     logo.setAttribute("id", "icon");
     

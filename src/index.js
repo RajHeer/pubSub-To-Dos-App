@@ -2,6 +2,7 @@ import "./styles.css";
 import event from "./events";
 import newData from "./newData";
 import headerWithNav from "./headerWithNav";
+import footer from "./footer";
 
 function component() {
 
@@ -14,6 +15,7 @@ function component() {
 }
   
 document.body.appendChild(component());
+document.body.appendChild( footer() );
 
 event.on("updateData", cBack);
 event.trigger("updateData", "Hello World!!!");
