@@ -1,7 +1,10 @@
 import event from "./events";
 
 export default function renderTasks() {
+    const section = document.createElement("section");
 
+
+    return section;
     
 }
 

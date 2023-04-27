@@ -3,19 +3,22 @@ import event from "./events";
 import newData from "./newData";
 import headerWithNav from "./headerWithNav";
 import footer from "./footer";
+import renderTasks from "./renderTasks";
 
 function component() {
 
     const main = document.createElement("main");
     
     main.appendChild( headerWithNav() );
+    main.appendChild( renderTasks() );
+    main.appendChild( footer() );
     
     return main;
 
 }
   
 document.body.appendChild(component());
-document.body.appendChild( footer() );
+// document.body.appendChild( footer() );
 
 event.on("updateData", cBack);
 event.trigger("updateData", "Hello World!!!");
