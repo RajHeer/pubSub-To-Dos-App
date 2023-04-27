@@ -10,7 +10,7 @@ module.exports = {
     newData: "./src/newData.js",
     headerWithNav: "./src/headerWithNav.js",
     projects: "./src/projects.js",
-    tasks: "./src/tasks.js",
+    renderTasks: "./src/renderTasks.js",
     footer: "./src/footer.js",
   },
   devtool: "inline-source-map",

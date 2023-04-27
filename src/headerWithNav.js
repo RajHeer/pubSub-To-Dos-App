@@ -1,12 +1,12 @@
 import projects from "./projects";
-import tasks from "./tasks";
-import honeycomb from "./honeycomb.png"
+import honeycomb from "./honeycomb.png";
+import renderTasks from "./renderTasks";
 
 export default function headerWithNav() {
     
     const modules = {
         projects: projects(),
-        tasks: tasks()
+        renderTasks: renderTasks()
     };
 
     const header = document.createElement("header");

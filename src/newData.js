@@ -7,7 +7,8 @@ export default (function newData() {
         description: "In stripes.",
         due: "Next Sunday",
         rating: "Amber",
-        complete: false
+        complete: false,
+        project: "Garden"
     };
 
     const trigger = () => {

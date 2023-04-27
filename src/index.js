@@ -23,16 +23,10 @@ event.trigger("updateData", "Hello World!!!");
 event.on("hmmm", cBack);
 event.trigger("hmmm", "Not verk");
 
-event.on("newData", cBack2);
-
 event.list();
 
 function cBack(data) {
     console.log(data);
 }
 
-function cBack2(data) {
-    for (const key in data) {
-        console.log(`${key}: ${data[key]}`);
-    }
-}
+
