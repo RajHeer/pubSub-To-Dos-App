@@ -18,7 +18,6 @@ function component() {
 }
   
 document.body.appendChild(component());
-// document.body.appendChild( footer() );
 
 event.on("updateData", cBack);
 event.trigger("updateData", "Hello World!!!");

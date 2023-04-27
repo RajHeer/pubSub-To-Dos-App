@@ -80,6 +80,11 @@ nav > div {
     border-top: 28.8675px solid orange;
   }
 
+section {
+    display: grid;
+    grid-template: auto / 6fr 2fr 2fr 2fr;
+}
+
 footer {
     position: sticky;
     top: 90vh;
