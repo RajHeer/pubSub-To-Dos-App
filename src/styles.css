@@ -82,7 +82,24 @@ nav > div {
 
 section {
     display: grid;
-    grid-template: auto / 6fr 2fr 2fr 2fr;
+    grid-template: auto / 6fr 2fr 2fr;
+    gap: 20px 10px;
+    margin: 2vh 5vw 0 20px;
+}
+
+section > div {
+    border: solid orange;
+    border-radius: 10px;
+    height: 60px;
+    padding: 10px 0 0 10px;
+}
+
+.titles {
+    font-size: 18px;
+    padding-top: 5px;
+    border: solid orange 5px;
+    height: 40px;
+    background: rgb(252, 205, 119);
 }
 
 footer {
