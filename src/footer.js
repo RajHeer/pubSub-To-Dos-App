@@ -1,3 +1,5 @@
+import event from "./events";
+
 export default function footer() {
     const footer = document.createElement("footer");
     const addButton = document.createElement("button");
@@ -6,7 +8,7 @@ export default function footer() {
     addButton.innerText = "+";
 
     addButton.addEventListener('click', () => {
-        console.log("Toggle display on form");
+        event.trigger("formDisplayToggle", null);
     });
 
     footer.appendChild(addButton);

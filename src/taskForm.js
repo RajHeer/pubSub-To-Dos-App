@@ -1,6 +1,9 @@
+import event from "./events";
+
 export default function taskForm() {
     const taskForm = document.createElement("form");
     taskForm.setAttribute('novalidate', true);
+    taskForm.style.display = "none";
     taskForm.innerHTML = `
         <fieldset>
             <label for="task_title">Task title
@@ -30,5 +33,14 @@ export default function taskForm() {
             <button type="submit" id="submit">Log Task</button>
         </fieldset>    
     `;
+
+    event.on("formDisplayToggle", displayToggle);
+
+    function displayToggle() {
+        taskForm.style.display === "none" 
+        ? taskForm.style.display = "block"
+        : taskForm.style.display = "none";
+    };
+
     return taskForm;
 }
