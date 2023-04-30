@@ -102,6 +102,44 @@ section > div {
     background: rgb(252, 205, 119);
 }
 
+form {
+    position: absolute;
+    bottom: 15vh;
+    right: 15vw;
+    margin-left: 15vw;
+    width: 70%;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+    border: solid orange 2.5px;
+    background: rgb(255, 222, 162);
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+input:last-of-type {
+    margin-bottom: 25px;
+}
+
+button {
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
 footer {
     position: sticky;
     top: 90vh;
@@ -116,6 +154,7 @@ footer {
 #add_circle {
     width: 50px;
     height: 50px;
+    border: solid orange;
     background: orange;
     border-radius: 50%;
     font-size: 3.5rem;

@@ -27,8 +27,8 @@ export default function taskForm() {
                 <input type="text" name="project" id="project" required>
                 <span class="error"></span>
             </label>
-        </fieldset>
-        <button type="submit" id="submit">Log Task</button>
+            <button type="submit" id="submit">Log Task</button>
+        </fieldset>    
     `;
     return taskForm;
 }
