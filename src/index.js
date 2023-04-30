@@ -4,6 +4,7 @@ import newData from "./newData";
 import headerWithNav from "./headerWithNav";
 import footer from "./footer";
 import renderTasks from "./renderTasks";
+import taskForm from "./taskForm";
 
 function component() {
 
@@ -12,6 +13,7 @@ function component() {
     main.appendChild( headerWithNav() );
     main.appendChild( renderTasks() );
     main.appendChild( footer() );
+    main.appendChild( taskForm() );
     
     return main;
 

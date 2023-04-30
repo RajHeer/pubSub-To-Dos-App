@@ -11,6 +11,7 @@ module.exports = {
     headerWithNav: "./src/headerWithNav.js",
     projects: "./src/projects.js",
     renderTasks: "./src/renderTasks.js",
+    taskForm: "./src/taskForm.js",
     footer: "./src/footer.js",
   },
   devtool: "inline-source-map",
