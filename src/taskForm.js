@@ -42,5 +42,21 @@ export default function taskForm() {
         : taskForm.style.display = "none";
     };
 
+    taskForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        getFormDataAndToArray(); 
+        setTimeout( () => taskForm.reset(), 250); 
+    });
+
+    function getFormDataAndToArray() {
+        const formData = new FormData(taskForm);
+        const taskData = {};
+        for (const pair of formData.entries()) {
+          taskData[pair[0]]=pair[1];
+        }
+        console.log(taskData);
+      }
+
+
     return taskForm;
 }
