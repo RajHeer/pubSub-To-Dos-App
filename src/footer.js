@@ -5,6 +5,10 @@ export default function footer() {
     addButton.setAttribute("id", "add_circle");
     addButton.innerText = "+";
 
+    addButton.addEventListener('click', () => {
+        console.log("Toggle display on form");
+    });
+
     footer.appendChild(addButton);
 
     return footer;
