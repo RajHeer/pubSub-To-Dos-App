@@ -11,6 +11,12 @@ export default (function newData() {
         project: "Garden"
     };
 
+    event.on("newTaskData", showNewData);
+
+    function showNewData(newData) {
+        console.log(newData);
+    }
+
     const trigger = () => {
         event.trigger("newData", data);
     };

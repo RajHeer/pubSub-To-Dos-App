@@ -50,11 +50,11 @@ export default function taskForm() {
 
     function getFormDataAndToArray() {
         const formData = new FormData(taskForm);
-        const taskData = {};
+        const newtaskData = {};
         for (const pair of formData.entries()) {
-          taskData[pair[0]]=pair[1];
+          newtaskData[pair[0]]=pair[1];
         }
-        console.log(taskData);
+        event.trigger("newTaskData", newtaskData);
       }
 
 
