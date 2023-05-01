@@ -2,7 +2,7 @@ import event from "./events"
 
 export default (function newData() {
 
-    const data = [ 
+    const allTaskData = [ 
         {
             task: "Mow grass",
             description: "In stripes.",
@@ -21,14 +21,15 @@ export default (function newData() {
         }
     ];
 
-    event.on("newTaskData", showNewData);
+    event.on("newTaskData", pushNewData);
 
-    function showNewData(newData) {
-        console.log(newData);
+    function pushNewData(newData) {
+        allTaskData.push(newData);
+        console.log(allTaskData);
     }
 
     const trigger = () => {
-        event.trigger("newData", data);
+        event.trigger("newData", allTaskData);
     };
 
     setTimeout(trigger, 5000);
