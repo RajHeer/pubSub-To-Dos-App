@@ -54,6 +54,7 @@ export default function taskForm() {
         for (const pair of formData.entries()) {
           newtaskData[pair[0]]=pair[1];
         }
+        newtaskData.complete = "false";
         event.trigger("newTaskData", newtaskData);
       }
 

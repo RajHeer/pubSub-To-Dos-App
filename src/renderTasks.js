@@ -21,16 +21,31 @@ export default function renderTasks() {
 
         data.forEach(task => {
             const taskDiv = document.createElement("div");
-            taskDiv.innerHTML = task["task"];
+            taskDiv.innerHTML = task["taskTitle"];
                 
             const dueDiv = document.createElement("div");
-            dueDiv.innerHTML = task["due"];
+            dueDiv.innerHTML = task["dueDate"];
                 
             const compDiv = document.createElement("div");
             compDiv.innerHTML = task["complete"];
 
             section.append( taskDiv, dueDiv, compDiv );
         });
+
+        event.on("showNewTask", showNewTask)
+
+        function showNewTask(newtaskData) {
+            const taskDiv = document.createElement("div");
+            taskDiv.innerHTML = newtaskData["taskTitle"];
+                
+            const dueDiv = document.createElement("div");
+            dueDiv.innerHTML = newtaskData["dueDate"];
+                
+            const compDiv = document.createElement("div");
+            compDiv.innerHTML = newtaskData["complete"];
+
+            section.append( taskDiv, dueDiv, compDiv );
+        }
 
     }
 

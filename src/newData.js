@@ -4,17 +4,17 @@ export default (function newData() {
 
     const allTaskData = [ 
         {
-            task: "Mow grass",
+            taskTitle: "Mow grass",
             description: "In stripes.",
-            due: "Next Sunday",
+            dueDate: "Next Sunday",
             rating: "Amber",
             complete: false,
             project: "Garden"
         },
         {
-            task: "Wash car",
+            taskTitle: "Wash car",
             description: "Wash, wax,",
-            due: "Saturday",
+            dueDate: "Saturday",
             rating: "Red",
             complete: false,
             project: "Garage"
@@ -25,7 +25,7 @@ export default (function newData() {
 
     function pushNewData(newData) {
         allTaskData.push(newData);
-        console.log(allTaskData);
+        event.trigger("showNewTask", newData)
     }
 
     const trigger = () => {
@@ -33,7 +33,5 @@ export default (function newData() {
     };
 
     setTimeout(trigger, 5000);
-
-    event.list();
 
 })();
