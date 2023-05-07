@@ -22,6 +22,7 @@ export default function renderTasks() {
         data.forEach(task => {
             const taskDiv = document.createElement("div");
             taskDiv.innerHTML = task["taskTitle"];
+            taskDiv.setAttribute("id", task["id"]);
                 
             const dueDiv = document.createElement("div");
             dueDiv.innerHTML = task["dueDate"];
@@ -31,23 +32,22 @@ export default function renderTasks() {
 
             section.append( taskDiv, dueDiv, compDiv );
         });
+    }
 
-        event.on("showNewTask", showNewTask)
+    event.on("showNewTask", showNewTask)
 
-        function showNewTask(newtaskData) {
-            const taskDiv = document.createElement("div");
-            taskDiv.innerHTML = newtaskData["taskTitle"];
-            taskDiv.setAttribute("id", newtaskData["id"]);
-                
-            const dueDiv = document.createElement("div");
-            dueDiv.innerHTML = newtaskData["dueDate"];
-                
-            const compDiv = document.createElement("div");
-            compDiv.innerHTML = newtaskData["complete"];
+    function showNewTask(newtaskData) {
+        const taskDiv = document.createElement("div");
+        taskDiv.innerHTML = newtaskData["taskTitle"];
+        taskDiv.setAttribute("id", newtaskData["id"]);
+            
+        const dueDiv = document.createElement("div");
+        dueDiv.innerHTML = newtaskData["dueDate"];
+            
+        const compDiv = document.createElement("div");
+        compDiv.innerHTML = newtaskData["complete"];
 
-            section.append( taskDiv, dueDiv, compDiv );
-        }
-
+        section.append( taskDiv, dueDiv, compDiv );
     }
 
     return section;
