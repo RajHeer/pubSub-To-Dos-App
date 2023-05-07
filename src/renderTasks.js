@@ -37,6 +37,7 @@ export default function renderTasks() {
         function showNewTask(newtaskData) {
             const taskDiv = document.createElement("div");
             taskDiv.innerHTML = newtaskData["taskTitle"];
+            taskDiv.setAttribute("id", newtaskData["id"]);
                 
             const dueDiv = document.createElement("div");
             dueDiv.innerHTML = newtaskData["dueDate"];

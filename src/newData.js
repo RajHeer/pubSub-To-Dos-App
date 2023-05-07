@@ -1,9 +1,11 @@
-import event from "./events"
+import event from "./events";
+import { v4 as uuid } from 'uuid';
 
 export default (function newData() {
 
     const allTaskData = [ 
         {
+            id: uuid(),
             taskTitle: "Mow grass",
             description: "In stripes.",
             dueDate: "Next Sunday",
@@ -12,6 +14,7 @@ export default (function newData() {
             project: "Garden"
         },
         {
+            id: uuid(),
             taskTitle: "Wash car",
             description: "Wash, wax,",
             dueDate: "Saturday",
@@ -24,6 +27,7 @@ export default (function newData() {
     event.on("newTaskData", pushNewData);
 
     function pushNewData(newData) {
+        newData.id = uuid();
         allTaskData.push(newData);
         event.trigger("showNewTask", newData)
     }
