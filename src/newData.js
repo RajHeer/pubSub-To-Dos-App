@@ -38,4 +38,15 @@ export default (function newData() {
 
     setTimeout(trigger, 5000);
 
+    event.on("getTaskData", showTask);
+
+    function showTask(taskID) {
+        allTaskData.filter(task => {
+            if (task.id === taskID) {
+                console.log(task);
+                event.trigger("showFormWithRetrievedData", task);
+            }
+        });
+    }
+
 })();

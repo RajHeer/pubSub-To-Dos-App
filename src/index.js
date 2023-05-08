@@ -16,5 +16,5 @@ function component() {
     return main;
 
 }
-  
+
 document.body.appendChild(component());

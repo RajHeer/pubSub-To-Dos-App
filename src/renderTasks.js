@@ -23,6 +23,9 @@ export default function renderTasks() {
             const taskDiv = document.createElement("div");
             taskDiv.innerHTML = task["taskTitle"];
             taskDiv.setAttribute("id", task["id"]);
+            taskDiv.addEventListener('click', () => {
+                event.trigger("getTaskData", task["id"]);
+            });
                 
             const dueDiv = document.createElement("div");
             dueDiv.innerHTML = task["dueDate"];

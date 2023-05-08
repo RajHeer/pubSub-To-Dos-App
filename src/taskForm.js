@@ -56,8 +56,21 @@ export default function taskForm() {
         }
         newtaskData.complete = "false";
         event.trigger("newTaskData", newtaskData);
-      }
+    }
 
+    event.on("showFormWithRetrievedData", formWithRetrievedData);
+
+    function formWithRetrievedData(retrievedTaskData) {
+        displayToggle();
+        console.log(retrievedTaskData);
+        const allInputs = document.querySelectorAll("input");
+        console.log(allInputs);
+        allInputs[0].value = retrievedTaskData.taskTitle;
+        allInputs[1].value = retrievedTaskData.description;
+        allInputs[2].value = retrievedTaskData.dueDate;
+        allInputs[3].value = retrievedTaskData.rating;
+        allInputs[4].value = retrievedTaskData.project;
+    }
 
     return taskForm;
 }
