@@ -23,6 +23,11 @@ export default (function newData() {
             project: "Garage"
         }
     ];
+    
+    allTaskData.forEach(task => {
+        event.trigger("initData", task);
+    })
+    
 
     event.on("newTaskData", pushNewData);
 
@@ -31,12 +36,6 @@ export default (function newData() {
         allTaskData.push(newData);
         event.trigger("showNewTask", newData)
     }
-
-    const trigger = () => {
-        event.trigger("newData", allTaskData);
-    };
-
-    setTimeout(trigger, 5000);
 
     event.on("getTaskData", showTask);
 

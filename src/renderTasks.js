@@ -15,40 +15,23 @@ export default function renderTasks() {
 
     section.append( taskTitle, dueTitle, compTitle );
 
-    event.on("newData", renderTask);
+    event.on("initData", renderTask);
+    event.on("showNewTask", renderTask);
 
-    function renderTask(data) {
+    function renderTask(task) {
 
-        data.forEach(task => {
-            const taskDiv = document.createElement("div");
-            taskDiv.innerHTML = task["taskTitle"];
-            taskDiv.setAttribute("id", task["id"]);
-            taskDiv.addEventListener('click', () => {
-                event.trigger("getTaskData", task["id"]);
-            });
-                
-            const dueDiv = document.createElement("div");
-            dueDiv.innerHTML = task["dueDate"];
-                
-            const compDiv = document.createElement("div");
-            compDiv.innerHTML = task["complete"];
-
-            section.append( taskDiv, dueDiv, compDiv );
-        });
-    }
-
-    event.on("showNewTask", showNewTask)
-
-    function showNewTask(newtaskData) {
         const taskDiv = document.createElement("div");
-        taskDiv.innerHTML = newtaskData["taskTitle"];
-        taskDiv.setAttribute("id", newtaskData["id"]);
+        taskDiv.innerHTML = task["taskTitle"];
+        taskDiv.setAttribute("id", task["id"]);
+        taskDiv.addEventListener('click', () => {
+            event.trigger("getTaskData", task["id"]);
+        });
             
         const dueDiv = document.createElement("div");
-        dueDiv.innerHTML = newtaskData["dueDate"];
+        dueDiv.innerHTML = task["dueDate"];
             
         const compDiv = document.createElement("div");
-        compDiv.innerHTML = newtaskData["complete"];
+        compDiv.innerHTML = task["complete"];
 
         section.append( taskDiv, dueDiv, compDiv );
     }
