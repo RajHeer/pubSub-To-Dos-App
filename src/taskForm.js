@@ -45,7 +45,7 @@ export default function taskForm() {
     taskForm.addEventListener('submit', (e) => {
         e.preventDefault();
         getFormDataAndToArray(); 
-        setTimeout( () => taskForm.reset(), 250); 
+        setTimeout( () => taskForm.reset(), 250);
     });
 
     function getFormDataAndToArray() {
@@ -62,14 +62,16 @@ export default function taskForm() {
 
     function formWithRetrievedData(retrievedTaskData) {
         displayToggle();
-        console.log(retrievedTaskData);
+
         const allInputs = document.querySelectorAll("input");
-        console.log(allInputs);
         allInputs[0].value = retrievedTaskData.taskTitle;
         allInputs[1].value = retrievedTaskData.description;
         allInputs[2].value = retrievedTaskData.dueDate;
         allInputs[3].value = retrievedTaskData.rating;
         allInputs[4].value = retrievedTaskData.project;
+
+        const btn = document.querySelector("#submit");
+        btn.innerHTML = "Click to save any updates";
     }
 
     return taskForm;
