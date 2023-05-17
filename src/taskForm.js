@@ -44,18 +44,20 @@ export default function taskForm() {
 
     taskForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        getFormDataAndToArray(); 
+        getFormDataToArrayAndSend(e.target[0].id); 
         setTimeout( () => taskForm.reset(), 250);
     });
 
-    function getFormDataAndToArray() {
+    function getFormDataToArrayAndSend(id) {
         const formData = new FormData(taskForm);
-        const newtaskData = {};
+        const sendFormData = {};
+        id !== "" ? sendFormData.id = id : sendFormData.id = null;
         for (const pair of formData.entries()) {
-          newtaskData[pair[0]]=pair[1];
+          sendFormData[pair[0]]=pair[1];
         }
-        newtaskData.complete = "false";
-        event.trigger("newTaskData", newtaskData);
+        sendFormData.complete = "false";
+
+        event.trigger("dataFromForm", sendFormData);
     }
 
     event.on("showFormWithRetrievedData", formWithRetrievedData);
@@ -64,12 +66,17 @@ export default function taskForm() {
         displayToggle();
 
         const allInputs = document.querySelectorAll("input");
+        const fieldsetForID = document.querySelector("fieldset");
+
         allInputs[0].value = retrievedTaskData.taskTitle;
         allInputs[1].value = retrievedTaskData.description;
         allInputs[2].value = retrievedTaskData.dueDate;
         allInputs[3].value = retrievedTaskData.rating;
         allInputs[4].value = retrievedTaskData.project;
-
+        // Pass the taskID to the fieldset and retrieve when 
+        // submitting the form to update corresponding record.
+        fieldsetForID.setAttribute("id", retrievedTaskData.id);
+    
         const btn = document.querySelector("#submit");
         btn.innerHTML = "Click to save any updates";
     }

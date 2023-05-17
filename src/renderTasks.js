@@ -9,7 +9,7 @@ export default function renderTasks() {
     taskTitle.setAttribute("class", "titles");
     dueTitle.setAttribute("class","titles");
     compTitle.setAttribute("class","titles");
-    taskTitle.innerHTML = "TASK";
+    taskTitle.innerHTML = "TASK - click item for full detail";
     dueTitle.innerHTML = "DUE";
     compTitle.innerHTML = "DONE?";
 

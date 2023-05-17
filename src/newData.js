@@ -29,20 +29,33 @@ export default (function newData() {
     })
     
 
-    event.on("newTaskData", pushNewData);
+    event.on("dataFromForm", pushData);
 
-    function pushNewData(newData) {
-        newData.id = uuid();
-        allTaskData.push(newData);
-        event.trigger("showNewTask", newData)
+    function pushData(taskData) {
+        taskData.id 
+        ? updateExistingRecord(taskData) 
+        : generateIDAndAddNewRecord(taskData);
     }
 
-    event.on("getTaskData", showTask);
+    function updateExistingRecord(data) {
+        console.log(data.id);
+    }
 
-    function showTask(taskID) {
+    function generateIDAndAddNewRecord(data) {
+        data.id = uuid();
+        allTaskData.push(data);
+        event.trigger("showNewTask", data);
+    }
+
+    function updateTaskRecord (taskData) {
+        console.log(taskData);
+    };
+
+    event.on("getTaskData", getTask);
+
+    function getTask(taskID) {
         allTaskData.filter(task => {
             if (task.id === taskID) {
-                console.log(task);
                 event.trigger("showFormWithRetrievedData", task);
             }
         });
