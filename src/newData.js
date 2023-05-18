@@ -39,6 +39,11 @@ export default (function newData() {
 
     function updateExistingRecord(data) {
         console.log(data.id);
+        allTaskData.filter(task => {
+            if (task.id === data.id) {
+                task = { ...task, ...data };
+            }
+        });
     }
 
     function generateIDAndAddNewRecord(data) {
