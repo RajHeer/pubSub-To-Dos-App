@@ -37,12 +37,8 @@ export default (function newData() {
     }
 
     function updateExistingRecord(data) {
-        console.log(data.id);
-        allTaskData.filter(task => {
-            if (task.id === data.id) {
-                task = { ...task, ...data };
-            }
-        });
+        const indexForUpdate = allTaskData.findIndex(task => task.id === data.id);
+        allTaskData[indexForUpdate] = data;
     }
 
     function generateIDAndAddNewRecord(data) {
@@ -50,10 +46,6 @@ export default (function newData() {
         allTaskData.push(data);
         event.trigger("showNewTask", data);
     }
-
-    function updateTaskRecord (taskData) {
-        console.log(taskData);
-    };
 
     event.on("getTaskData", getTask);
 
