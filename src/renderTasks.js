@@ -2,6 +2,8 @@ import event from "./events";
 
 export default function renderTasks() {
     const section = document.createElement("section");
+
+    const titlesArticle = document.createElement("article");
     const taskTitle = document.createElement("div");
     const dueTitle = document.createElement("div");
     const compTitle = document.createElement("div");
@@ -13,16 +15,19 @@ export default function renderTasks() {
     dueTitle.innerHTML = "DUE";
     compTitle.innerHTML = "DONE?";
 
-    section.append( taskTitle, dueTitle, compTitle );
+    titlesArticle.append( taskTitle, dueTitle, compTitle );
+    section.append( titlesArticle );
 
     event.on("initData", renderTask);
     event.on("showNewTask", renderTask);
 
     function renderTask(task) {
 
+        const taskArticle = document.createElement("article");
+        taskArticle.setAttribute("id", task["id"]);
+
         const taskDiv = document.createElement("div");
         taskDiv.innerHTML = task["taskTitle"];
-        taskDiv.setAttribute("id", task["id"]);
         taskDiv.addEventListener('click', () => {
             event.trigger("getTaskData", task["id"]);
         });
@@ -33,7 +38,8 @@ export default function renderTasks() {
         const compDiv = document.createElement("div");
         compDiv.innerHTML = task["complete"];
 
-        section.append( taskDiv, dueDiv, compDiv );
+        taskArticle.append( taskDiv, dueDiv, compDiv );
+        section.append( taskArticle );
     }
 
     return section;

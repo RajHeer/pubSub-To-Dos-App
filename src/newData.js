@@ -27,7 +27,6 @@ export default (function newData() {
     allTaskData.forEach(task => {
         event.trigger("initData", task);
     })
-    
 
     event.on("dataFromForm", pushData);
 
