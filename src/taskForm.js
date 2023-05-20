@@ -45,7 +45,7 @@ export default function taskForm() {
     taskForm.addEventListener('submit', (e) => {
         e.preventDefault();
         getFormDataToArrayAndSend(e.target[0].id); 
-        setTimeout( () => taskForm.reset(), 250);
+        resetForm();
     });
 
     function getFormDataToArrayAndSend(id) {
@@ -59,6 +59,17 @@ export default function taskForm() {
 
         event.trigger("dataFromForm", sendFormData);
     }
+
+    function resetForm() {
+        setTimeout( () => {
+            taskForm.reset();
+            const fieldsetForID = document.querySelector("fieldset");
+            fieldsetForID.removeAttribute("id");
+            const btn = document.querySelector("#submit");
+            btn.innerHTML = "Log Task";
+            displayToggle();
+        }, 250);
+    };
 
     event.on("showFormWithRetrievedData", formWithRetrievedData);
 
