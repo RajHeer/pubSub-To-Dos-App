@@ -19,7 +19,8 @@ export default function renderTasks() {
     section.append( titlesArticle );
 
     event.on("initData", renderTask);
-    event.on("showNewTask", renderTask);
+    event.on("showTask", renderTask);
+    event.on("updateTask", firstRemoveOldTask);
 
     function renderTask(task) {
 
@@ -40,6 +41,11 @@ export default function renderTasks() {
 
         taskArticle.append( taskDiv, dueDiv, compDiv );
         section.append( taskArticle );
+    }
+
+    function firstRemoveOldTask(task) {
+        document.getElementById(task.id).remove();
+        event.trigger("showTask", task);
     }
 
     return section;

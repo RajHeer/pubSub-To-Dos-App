@@ -39,12 +39,13 @@ export default (function newData() {
     function updateExistingRecord(data) {
         const indexForUpdate = allTaskData.findIndex(task => task.id === data.id);
         allTaskData[indexForUpdate] = data;
+        event.trigger("updateTask", data);
     }
 
     function generateIDAndAddNewRecord(data) {
         data.id = uuid();
         allTaskData.push(data);
-        event.trigger("showNewTask", data);
+        event.trigger("showTask", data);
     }
 
     event.on("getTaskData", getTask);
