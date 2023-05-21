@@ -1,6 +1,7 @@
 import event from "./events";
 
 export default function taskForm() {
+    const root = document.documentElement;
     const taskForm = document.createElement("form");
     taskForm.setAttribute('novalidate', true);
     taskForm.style.display = "none";
@@ -67,6 +68,7 @@ export default function taskForm() {
             fieldsetForID.removeAttribute("id");
             const btn = document.querySelector("#submit");
             btn.innerHTML = "Log Task";
+            root.style.setProperty("--form_colour", "rgb(255, 222, 162)");
             displayToggle();
         }, 250);
     };
@@ -74,6 +76,7 @@ export default function taskForm() {
     event.on("showFormWithRetrievedData", formWithRetrievedData);
 
     function formWithRetrievedData(retrievedTaskData) {
+        root.style.setProperty("--form_colour", "lightblue");
         displayToggle();
 
         const allInputs = document.querySelectorAll("input");
