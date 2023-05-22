@@ -21,12 +21,12 @@ export default function headerWithNav() {
     // CREATE VIEW TABS
     const divProjects = document.createElement("div");
     divProjects.setAttribute("id", "projects");
-    divProjects.setAttribute("id", "hexagon");
+    divProjects.setAttribute("class", "hexagon");
     divProjects.innerText = "Projects";
 
     const divTasks = document.createElement("div");
     divTasks.setAttribute("id", "tasks");
-    divTasks.setAttribute("id", "hexagon");
+    divTasks.setAttribute("class", "hexagon");
     divTasks.innerText = "Tasks";
 
     // APPEND VIEW TABS INTO NAV

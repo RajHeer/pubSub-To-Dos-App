@@ -61,6 +61,7 @@ export default function renderTasks() {
         compDiv.innerHTML = task["complete"];
 
         taskArticle.append( taskDiv, dueDiv, compDiv );
+
     }
 
     return section;

@@ -55,13 +55,14 @@ nav > div {
     padding-top: 20px;
 }
 
-#hexagon {
+.hexagon {
     width: 100px;
     height: 57.735px;
     background: orange;
     position: relative;
-  }
-  #hexagon::before {
+}
+
+.hexagon::before {
     content: "";
     position: absolute;
     top: -28.8675px;
@@ -71,8 +72,9 @@ nav > div {
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
     border-bottom: 28.8675px solid orange;;
-  }
-  #hexagon::after {
+}
+
+.hexagon::after {
     content: "";
     position: absolute;
     bottom: -28.8675px;
@@ -82,7 +84,7 @@ nav > div {
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
     border-top: 28.8675px solid orange;
-  }
+}
 
 article {
     display: grid;
