@@ -44,8 +44,23 @@ export default function renderTasks() {
     }
 
     function firstRemoveOldTask(task) {
-        document.getElementById(task.id).remove();
-        event.trigger("showTask", task);
+        const taskArticle = document.getElementById(task.id);
+        const taskDivs = taskArticle.querySelectorAll("div");
+        taskDivs.forEach( div => div.remove() );
+
+        const taskDiv = document.createElement("div");
+        taskDiv.innerHTML = task["taskTitle"];
+        taskDiv.addEventListener('click', () => {
+            event.trigger("getTaskData", task["id"]);
+        });
+            
+        const dueDiv = document.createElement("div");
+        dueDiv.innerHTML = task["dueDate"];
+            
+        const compDiv = document.createElement("div");
+        compDiv.innerHTML = task["complete"];
+
+        taskArticle.append( taskDiv, dueDiv, compDiv );
     }
 
     return section;
