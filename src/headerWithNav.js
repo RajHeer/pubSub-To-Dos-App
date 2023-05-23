@@ -1,18 +1,12 @@
-import projects from "./projects";
 import honeycomb from "./honeycomb.png";
-import renderTasks from "./renderTasks";
+import event from "./events";
 
 export default function headerWithNav() {
     
-    const modules = {
-        projects: projects(),
-        renderTasks: renderTasks()
-    };
-
     const header = document.createElement("header");
-      const h1 = document.createElement("h1");
-      const logo = document.createElement("img");
-      const nav = document.createElement("nav");
+    const h1 = document.createElement("h1");
+    const logo = document.createElement("img");
+    const nav = document.createElement("nav");
     
     h1.innerText = "Bee Buzzy.";
     logo.src = honeycomb;
@@ -23,11 +17,17 @@ export default function headerWithNav() {
     divProjects.setAttribute("id", "projects");
     divProjects.setAttribute("class", "hexagon");
     divProjects.innerText = "Projects";
+    divProjects.addEventListener("click", () => {
+        event.trigger("getProjectOptions");
+    });
 
     const divTasks = document.createElement("div");
     divTasks.setAttribute("id", "tasks");
     divTasks.setAttribute("class", "hexagon");
     divTasks.innerText = "Tasks";
+    divTasks.addEventListener("click", () => {
+        event.trigger("getTaskOptions");
+    });
 
     // APPEND VIEW TABS INTO NAV
     nav.appendChild(divProjects);
@@ -37,17 +37,5 @@ export default function headerWithNav() {
     header.appendChild(logo);
     header.appendChild(nav);
 
-    // ADD LISTENERS TO APPEND SECTIONS & TOGGLE VIEW
-    const divs = nav.querySelectorAll("div");
-    divs.forEach(div => {
-        div.addEventListener("click", (e) =>{
-            if ( document.querySelector("section") != null ) {
-                const section = document.querySelector("section");
-                section.remove();
-            }
-            document.body.appendChild( modules[e.target.id] );
-        })
-    });
-    
     return header;
 }

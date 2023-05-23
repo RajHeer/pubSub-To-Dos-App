@@ -58,4 +58,16 @@ export default (function newData() {
         });
     }
 
+    event.on("getProjectOptions", getProjOptions);
+
+    function getProjOptions() {
+        const projList = [];
+        allTaskData.map(task => {
+            !projList.includes(task.project) 
+            ? projList.push(task.project) 
+            : false;
+        });
+        console.log(projList);
+    }
+
 })();
