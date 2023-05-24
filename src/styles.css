@@ -86,6 +86,17 @@ nav > div {
     border-top: 28.8675px solid orange;
 }
 
+.proj_div {
+    border: solid orange 3px;
+    border-radius: 5px;
+    background-color:  rgb(255, 222, 162);
+    padding: 2px;
+}
+
+.proj_div:first-of-type {
+    margin-top: 50px;
+}
+
 article {
     display: grid;
     grid-template: auto / 6fr 2fr 2fr;

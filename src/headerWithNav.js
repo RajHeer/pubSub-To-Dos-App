@@ -19,8 +19,23 @@ export default function headerWithNav() {
     divProjects.setAttribute("class", "hexagon");
     divProjects.innerText = "Projects";
     divProjects.addEventListener("click", () => {
-        event.trigger("getProjectOptions");
+        divProjects.children.length > 0
+        ? removeProjDivs()
+        : event.trigger("getProjectsData");
     });
+
+    function removeProjDivs() {
+        while (divProjects.firstChild) {
+            divProjects.removeChild(divProjects.firstChild);
+        }
+        divProjects.innerText = "Projects";
+    }
+
+    event.on("showProjDivs", showProjDivs);
+
+    function showProjDivs(allProjDivs) {
+        divProjects.append(...allProjDivs);
+    }
 
     const divTasks = document.createElement("div");
     divTasks.setAttribute("id", "tasks");

@@ -58,7 +58,7 @@ export default (function newData() {
         });
     }
 
-    event.on("getProjectOptions", getProjOptions);
+    event.on("getProjectsData", getProjOptions);
 
     function getProjOptions() {
         const projList = [];
@@ -67,7 +67,7 @@ export default (function newData() {
             ? projList.push(task.project) 
             : false;
         });
-        event.trigger("showProjOptions", projList);
+        event.trigger("makeProjDivs", projList);
     }
 
 })();
