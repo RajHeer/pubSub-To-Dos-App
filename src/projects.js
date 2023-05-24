@@ -1,5 +1,9 @@
 import event from "./events";
 
 export default function projects() {
-    event.on("showProjOptions", projOptions);
+    event.on("showProjOptions", showProjOptions);
+
+    function showProjOptions(projects) {
+        console.log(projects);
+    }
 }

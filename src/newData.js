@@ -67,7 +67,7 @@ export default (function newData() {
             ? projList.push(task.project) 
             : false;
         });
-        console.log(projList);
+        event.trigger("showProjOptions", projList);
     }
 
 })();

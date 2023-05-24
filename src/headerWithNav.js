@@ -1,8 +1,8 @@
 import honeycomb from "./honeycomb.png";
 import event from "./events";
+import projects from "./projects";
 
 export default function headerWithNav() {
-    
     const header = document.createElement("header");
     const h1 = document.createElement("h1");
     const logo = document.createElement("img");
@@ -13,6 +13,7 @@ export default function headerWithNav() {
     logo.setAttribute("id", "icon");
     
     // CREATE VIEW TABS
+    projects();
     const divProjects = document.createElement("div");
     divProjects.setAttribute("id", "projects");
     divProjects.setAttribute("class", "hexagon");

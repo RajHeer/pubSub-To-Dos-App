@@ -4,6 +4,7 @@ import footer from "./footer";
 import renderTasks from "./renderTasks";
 import taskForm from "./taskForm";
 
+
 function component() {
 
     const main = document.createElement("main");
@@ -12,7 +13,7 @@ function component() {
     main.appendChild( renderTasks() );
     main.appendChild( footer() );
     main.appendChild( taskForm() );
-    
+
     return main;
 
 }
