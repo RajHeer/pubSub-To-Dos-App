@@ -25,12 +25,13 @@ export default function renderTasks() {
     function renderTask(task) {
 
         const taskArticle = document.createElement("article");
-        taskArticle.setAttribute("id", task["id"]);
+        taskArticle.setAttribute("id", task.id);
+        taskArticle.dataset.proj_type = task.project;
 
         const taskDiv = document.createElement("div");
         taskDiv.innerHTML = task["taskTitle"];
         taskDiv.addEventListener('click', () => {
-            event.trigger("getTaskData", task["id"]);
+            event.trigger("getTaskData", task.id);
         });
             
         const dueDiv = document.createElement("div");
@@ -51,14 +52,14 @@ export default function renderTasks() {
         const taskDiv = document.createElement("div");
         taskDiv.innerHTML = task["taskTitle"];
         taskDiv.addEventListener('click', () => {
-            event.trigger("getTaskData", task["id"]);
+            event.trigger("getTaskData", task.id);
         });
             
         const dueDiv = document.createElement("div");
-        dueDiv.innerHTML = task["dueDate"];
+        dueDiv.innerHTML = task.dueDate;
             
         const compDiv = document.createElement("div");
-        compDiv.innerHTML = task["complete"];
+        compDiv.innerHTML = task.complete;
 
         taskArticle.append( taskDiv, dueDiv, compDiv );
 
