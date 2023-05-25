@@ -18,17 +18,21 @@ export default function headerWithNav() {
     divProjects.setAttribute("id", "projects");
     divProjects.setAttribute("class", "hexagon");
     divProjects.innerText = "Projects";
-    divProjects.addEventListener("click", () => {
+    divProjects.addEventListener("click", (e) => {
         divProjects.children.length > 0
-        ? removeProjDivs()
+        ? removeProjDivs(e.target)
         : event.trigger("getProjectsData");
     });
 
-    function removeProjDivs() {
-        while (divProjects.firstChild) {
-            divProjects.removeChild(divProjects.firstChild);
+    function removeProjDivs(target) {
+        if (target.className === "proj_div") {
+            console.log(target);
+        } else {
+            while (divProjects.firstChild) {
+                divProjects.removeChild(divProjects.firstChild);
+            }
+            divProjects.innerText = "Projects";
         }
-        divProjects.innerText = "Projects";
     }
 
     event.on("showProjDivs", showProjDivs);
