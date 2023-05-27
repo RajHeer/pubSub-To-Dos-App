@@ -24,10 +24,18 @@ export default (function newData() {
         }
     ];
     
-    allTaskData.forEach(task => {
-        event.trigger("showTask", task);
-    })
+    (function init() {
+        getAllTasks();
+    })();
 
+    event.on("getAllTasks", getAllTasks);
+
+    function getAllTasks() {
+        allTaskData.forEach(task => {
+            event.trigger("showTask", task);
+        });
+    }
+    
     event.on("dataFromForm", pushData);
 
     function pushData(taskData) {

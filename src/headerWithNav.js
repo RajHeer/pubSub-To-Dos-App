@@ -46,7 +46,7 @@ export default function headerWithNav() {
     divTasks.setAttribute("class", "hexagon");
     divTasks.innerText = "Tasks";
     divTasks.addEventListener("click", () => {
-        event.trigger("getTaskOptions");
+        event.trigger("getAllTasks", null);
     });
 
     // APPEND VIEW TABS INTO NAV
