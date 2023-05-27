@@ -25,7 +25,7 @@ export default (function newData() {
     ];
     
     allTaskData.forEach(task => {
-        event.trigger("initData", task);
+        event.trigger("showTask", task);
     })
 
     event.on("dataFromForm", pushData);
@@ -58,9 +58,9 @@ export default (function newData() {
         });
     }
 
-    event.on("getProjectsData", getProjOptions);
+    event.on("getProjectsList", getProjList);
 
-    function getProjOptions() {
+    function getProjList() {
         const projList = [];
         allTaskData.map(task => {
             !projList.includes(task.project) 
@@ -68,6 +68,18 @@ export default (function newData() {
             : false;
         });
         event.trigger("makeProjDivs", projList);
+    }
+
+    event.on("getTasksByProject", getTasksByProj);
+
+    function getTasksByProj(project) {
+        const tasksByProj = [];
+        allTaskData.map(task => {
+            task.project === project.innerHTML
+            ? tasksByProj.push(task)
+            : false;
+        })
+        event.trigger("showTasksByProj", tasksByProj);
     }
 
 })();

@@ -21,12 +21,12 @@ export default function headerWithNav() {
     divProjects.addEventListener("click", (e) => {
         divProjects.children.length > 0
         ? removeProjDivs(e.target)
-        : event.trigger("getProjectsData");
+        : event.trigger("getProjectsList");
     });
 
     function removeProjDivs(target) {
         if (target.className === "proj_div") {
-            console.log(target);
+            event.trigger("getTasksByProject", target);
         } else {
             while (divProjects.firstChild) {
                 divProjects.removeChild(divProjects.firstChild);

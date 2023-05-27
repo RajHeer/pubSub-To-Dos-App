@@ -18,7 +18,7 @@ export default function renderTasks() {
     titlesArticle.append( taskTitle, dueTitle, compTitle );
     section.append( titlesArticle );
 
-    event.on("initData", renderTask);
+    
     event.on("showTask", renderTask);
     event.on("updateTask", firstRemoveOldTask);
 
@@ -63,6 +63,16 @@ export default function renderTasks() {
 
         taskArticle.append( taskDiv, dueDiv, compDiv );
 
+    }
+
+    event.on("showTasksByProj", clearOldTasksThenShowByProject);
+
+    function clearOldTasksThenShowByProject(tasksByProj) {
+        const allTaskArticles = document.querySelectorAll("article");
+        allTaskArticles.forEach( article => article.remove() );
+        tasksByProj.map(task => {
+            event.trigger("showTask", task);
+        })
     }
 
     return section;
