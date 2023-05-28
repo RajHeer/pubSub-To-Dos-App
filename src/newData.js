@@ -31,9 +31,7 @@ export default (function newData() {
     event.on("getAllTasks", getAllTasks);
 
     function getAllTasks() {
-        allTaskData.forEach(task => {
-            event.trigger("showTask", task);
-        });
+        event.trigger("showManyTasks", allTaskData);
     }
     
     event.on("dataFromForm", pushData);
@@ -87,7 +85,7 @@ export default (function newData() {
             ? tasksByProj.push(task)
             : false;
         })
-        event.trigger("showTasksByProj", tasksByProj);
+        event.trigger("showManyTasks", tasksByProj);
     }
 
 })();

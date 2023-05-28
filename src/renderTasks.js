@@ -65,12 +65,12 @@ export default function renderTasks() {
 
     }
 
-    event.on("showTasksByProj", clearOldTasksThenShowByProject);
+    event.on("showManyTasks", clearOldTasksThenShowNew);
 
-    function clearOldTasksThenShowByProject(tasksByProj) {
+    function clearOldTasksThenShowNew(manyTasks) {
         const allTaskArticles = document.querySelectorAll("article");
         allTaskArticles.forEach( article => article.remove() );
-        tasksByProj.map(task => {
+        manyTasks.map(task => {
             event.trigger("showTask", task);
         })
     }
