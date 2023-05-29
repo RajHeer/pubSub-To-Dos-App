@@ -8,8 +8,17 @@ export default function footer() {
     addButton.innerText = "+";
 
     addButton.addEventListener('click', () => {
-        event.trigger("formDisplayToggle", null);
+        event.trigger("formDisplayToggle");
+        event.trigger("addButtonToggle");
     });
+
+    event.on("addButtonToggle", toggleBTNText)
+
+    function toggleBTNText() {
+        addButton.innerText === "+"
+        ? addButton.innerText = "-"
+        : addButton.innerText = "+";
+    }
 
     footer.appendChild(addButton);
 

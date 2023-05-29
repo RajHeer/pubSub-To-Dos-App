@@ -77,6 +77,13 @@ export default function taskForm() {
     event.on("showFormWithRetrievedData", formWithRetrievedData);
 
     function formWithRetrievedData(retrievedTaskData) {
+        
+        // TOGGLES '+'/'-' WHEN EDIT FORM IS FIRST DISPLAYED ONLY
+        const formColour = getComputedStyle(root).getPropertyValue("--form_colour");
+        formColour === "rgb(255, 222, 162)"
+        ? event.trigger("addButtonToggle")
+        : false;
+        
         root.style.setProperty("--form_colour", "lightblue");
         taskForm.style.display = "block";
 
