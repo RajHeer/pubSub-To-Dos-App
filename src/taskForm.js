@@ -38,6 +38,7 @@ export default function taskForm() {
     event.on("formDisplayToggle", displayToggle);
 
     function displayToggle() {
+        resetForm();
         taskForm.style.display === "none" 
         ? taskForm.style.display = "block"
         : taskForm.style.display = "none";
@@ -69,7 +70,7 @@ export default function taskForm() {
             const btn = document.querySelector("#submit");
             btn.innerHTML = "Log Task";
             root.style.setProperty("--form_colour", "rgb(255, 222, 162)");
-            displayToggle();
+            taskForm.style.display === "none";
         }, 250);
     };
 
@@ -77,7 +78,7 @@ export default function taskForm() {
 
     function formWithRetrievedData(retrievedTaskData) {
         root.style.setProperty("--form_colour", "lightblue");
-        displayToggle();
+        taskForm.style.display = "block";
 
         const allInputs = document.querySelectorAll("input");
         const fieldsetForID = document.querySelector("fieldset");
