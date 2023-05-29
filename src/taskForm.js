@@ -80,7 +80,7 @@ export default function taskForm() {
         
         // TOGGLES '+'/'-' WHEN EDIT FORM IS FIRST DISPLAYED ONLY
         const formColour = getComputedStyle(root).getPropertyValue("--form_colour");
-        formColour === "rgb(255, 222, 162)"
+        formColour === "rgb(255, 222, 162)" && taskForm.style.display === "none"
         ? event.trigger("addButtonToggle")
         : false;
         
