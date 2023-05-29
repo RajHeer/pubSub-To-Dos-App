@@ -50,7 +50,7 @@ export default function renderTasks() {
 
     function firstRemoveOldTask(task) {
         const taskArticle = document.getElementById(task.id);
-        const taskDivs = taskArticle.getElementsByClassName("task");
+        const taskDivs = taskArticle.querySelectorAll(".task");
         taskDivs.forEach( div => div.remove() );
 
         const taskDiv = document.createElement("div");
@@ -75,10 +75,13 @@ export default function renderTasks() {
     event.on("showManyTasks", clearOldTasksThenShowNew);
 
     function clearOldTasksThenShowNew(manyTasks) {
-        const allTaskArticles = document.getElementsByClassName("task_article");
+        const allTaskArticles = document.querySelectorAll(".task_article");
 
         if (allTaskArticles.length > 0) {
-            allTaskArticles.forEach( article => article.remove() );
+            allTaskArticles.forEach(article => {
+                article.remove();
+            })
+            console.log(allTaskArticles);
         }
 
         manyTasks.map(task => {
