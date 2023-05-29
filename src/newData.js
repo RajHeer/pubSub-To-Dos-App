@@ -24,9 +24,9 @@ export default (function newData() {
         }
     ];
     
-    (function init() {
-        getAllTasks();
-    })();
+    // On init displays sample data above
+    getAllTasks();
+    
 
     event.on("getAllTasks", getAllTasks);
 

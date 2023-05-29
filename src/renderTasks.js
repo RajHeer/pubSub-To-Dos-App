@@ -9,7 +9,7 @@ export default function renderTasks() {
     const compTitle = document.createElement("div");
 
     taskTitle.setAttribute("class", "titles");
-    dueTitle.setAttribute("class","titles");
+    dueTitle.setAttribute("class", "titles");
     compTitle.setAttribute("class","titles");
     taskTitle.innerHTML = "TASK - click item for full detail";
     dueTitle.innerHTML = "DUE";
@@ -26,18 +26,22 @@ export default function renderTasks() {
 
         const taskArticle = document.createElement("article");
         taskArticle.setAttribute("id", task.id);
+        taskArticle.setAttribute("class", "task_article");
         taskArticle.dataset.proj_type = task.project;
 
         const taskDiv = document.createElement("div");
+        taskDiv.setAttribute("class", "task");
         taskDiv.innerHTML = task["taskTitle"];
         taskDiv.addEventListener('click', () => {
             event.trigger("getTaskData", task.id);
         });
             
         const dueDiv = document.createElement("div");
+        dueDiv.setAttribute("class", "task");
         dueDiv.innerHTML = task["dueDate"];
             
         const compDiv = document.createElement("div");
+        compDiv.setAttribute("class", "task");
         compDiv.innerHTML = task["complete"];
 
         taskArticle.append( taskDiv, dueDiv, compDiv );
@@ -46,19 +50,22 @@ export default function renderTasks() {
 
     function firstRemoveOldTask(task) {
         const taskArticle = document.getElementById(task.id);
-        const taskDivs = taskArticle.querySelectorAll("div");
+        const taskDivs = taskArticle.getElementsByClassName("task");
         taskDivs.forEach( div => div.remove() );
 
         const taskDiv = document.createElement("div");
+        taskDiv.setAttribute("class", "task");
         taskDiv.innerHTML = task["taskTitle"];
         taskDiv.addEventListener('click', () => {
             event.trigger("getTaskData", task.id);
         });
             
         const dueDiv = document.createElement("div");
+        dueDiv.setAttribute("class", "task");
         dueDiv.innerHTML = task.dueDate;
             
         const compDiv = document.createElement("div");
+        compDiv.setAttribute("class", "task");
         compDiv.innerHTML = task.complete;
 
         taskArticle.append( taskDiv, dueDiv, compDiv );
@@ -68,11 +75,16 @@ export default function renderTasks() {
     event.on("showManyTasks", clearOldTasksThenShowNew);
 
     function clearOldTasksThenShowNew(manyTasks) {
-        const allTaskArticles = document.querySelectorAll("article");
-        allTaskArticles.forEach( article => article.remove() );
+        const allTaskArticles = document.getElementsByClassName("task_article");
+
+        if (allTaskArticles.length > 0) {
+            allTaskArticles.forEach( article => article.remove() );
+        }
+
         manyTasks.map(task => {
             event.trigger("showTask", task);
-        })
+        });
+
         event.trigger("removeProjDivs");
     }
 
