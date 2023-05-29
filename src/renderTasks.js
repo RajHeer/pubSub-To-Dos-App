@@ -73,6 +73,7 @@ export default function renderTasks() {
         manyTasks.map(task => {
             event.trigger("showTask", task);
         })
+        event.trigger("removeProjDivs");
     }
 
     return section;
