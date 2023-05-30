@@ -119,6 +119,14 @@ article > div {
     background: rgb(252, 205, 119);
 }
 
+.task_div {
+    border: solid green;
+}
+
+#edit_btn, #delete_btn {
+    width: 25px;
+}
+
 form {
     position: absolute;
     bottom: 15vh;

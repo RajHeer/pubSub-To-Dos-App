@@ -18,13 +18,14 @@ export default function headerWithNav() {
     divProjects.setAttribute("id", "projects");
     divProjects.setAttribute("class", "hexagon");
     divProjects.innerText = "Projects";
+
     divProjects.addEventListener("click", (e) => {
         divProjects.children.length > 0
-        ? event.trigger("removeProjDivs", e.target)
+        ? event.trigger ("removeProjDivs", e.target)
         : event.trigger("getProjectsList");
     });
 
-    event.on("removeProjDivs", removeProjDivs)
+    event.on("removeProjDivs", removeProjDivs);
 
     function removeProjDivs(target) {
         if (!target) {
@@ -32,9 +33,10 @@ export default function headerWithNav() {
                 divProjects.removeChild(divProjects.firstChild);
             }
             divProjects.innerText = "Projects";
-        } else if (target.className === "proj_div") {
-            event.trigger("getTasksByProject", target);
         }
+        else if (target.className === "proj_div") {
+            event.trigger("getProjectsList", target);
+        } 
     }
 
     event.on("showProjDivs", showProjDivs);
