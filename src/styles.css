@@ -119,12 +119,22 @@ article > div {
     background: rgb(252, 205, 119);
 }
 
-.task_div {
-    border: solid green;
+.task {
+    position: relative;
 }
 
 #edit_btn, #delete_btn {
     width: 25px;
+    position: absolute;
+    top: 10px;
+}
+
+#delete_btn {
+    right: 5px;
+}
+
+#edit_btn {
+    right: 40px;
 }
 
 form {

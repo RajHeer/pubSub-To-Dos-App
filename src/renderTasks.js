@@ -33,7 +33,6 @@ export default function renderTasks() {
 
         const taskDiv = document.createElement("div");
         taskDiv.setAttribute("class", "task");
-        taskDiv.setAttribute("class", "task_title");
         taskDiv.innerHTML = task["taskTitle"];
         taskDiv.addEventListener('click', () => {
             event.trigger("getTaskData", task.id);
