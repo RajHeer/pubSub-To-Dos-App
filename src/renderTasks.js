@@ -33,6 +33,7 @@ export default function renderTasks() {
 
         const taskDiv = document.createElement("div");
         taskDiv.setAttribute("class", "task");
+        taskDiv.setAttribute("id", "task_title");
         taskDiv.innerHTML = task["taskTitle"];
         taskDiv.addEventListener('click', () => {
             event.trigger("getTaskData", task.id);
@@ -68,10 +69,21 @@ export default function renderTasks() {
 
         const taskDiv = document.createElement("div");
         taskDiv.setAttribute("class", "task");
+        taskDiv.setAttribute("id", "task_title");
         taskDiv.innerHTML = task["taskTitle"];
         taskDiv.addEventListener('click', () => {
             event.trigger("getTaskData", task.id);
         });
+
+        const editBTN = document.createElement("img");
+        editBTN.src = editICON;
+        editBTN.setAttribute("id", "edit_btn");
+
+        const deleteBTN = document.createElement("img");
+        deleteBTN.src = deleteICON;
+        deleteBTN.setAttribute("id", "delete_btn");
+
+        taskDiv.append ( editBTN, deleteBTN );
             
         const dueDiv = document.createElement("div");
         dueDiv.setAttribute("class", "task");

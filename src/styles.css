@@ -119,21 +119,24 @@ article > div {
     background: rgb(252, 205, 119);
 }
 
-.task {
-    position: relative;
+#task_title {
+    display: grid;
+    grid-template-columns: 1fr 30px 30px;
+
 }
 
 #edit_btn, #delete_btn {
     width: 25px;
-    position: absolute;
     top: 10px;
 }
 
 #delete_btn {
+    grid-column: 3;
     right: 5px;
 }
 
 #edit_btn {
+    grid-column: 2;
     right: 40px;
 }
 
