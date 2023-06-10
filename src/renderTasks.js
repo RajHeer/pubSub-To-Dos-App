@@ -35,13 +35,13 @@ export default function renderTasks() {
         taskDiv.setAttribute("class", "task");
         taskDiv.setAttribute("id", "task_title");
         taskDiv.innerHTML = task["taskTitle"];
-        taskDiv.addEventListener('click', () => {
-            event.trigger("getTaskData", task.id);
-        });
 
         const editBTN = document.createElement("img");
         editBTN.src = editICON;
         editBTN.setAttribute("id", "edit_btn");
+        editBTN.addEventListener('click', () => {
+            event.trigger("getTaskData", task.id);
+        });
 
         const deleteBTN = document.createElement("img");
         deleteBTN.src = deleteICON;
@@ -71,13 +71,13 @@ export default function renderTasks() {
         taskDiv.setAttribute("class", "task");
         taskDiv.setAttribute("id", "task_title");
         taskDiv.innerHTML = task["taskTitle"];
-        taskDiv.addEventListener('click', () => {
-            event.trigger("getTaskData", task.id);
-        });
 
         const editBTN = document.createElement("img");
         editBTN.src = editICON;
         editBTN.setAttribute("id", "edit_btn");
+        editBTN.addEventListener('click', () => {
+            event.trigger("getTaskData", task.id);
+        });
 
         const deleteBTN = document.createElement("img");
         deleteBTN.src = deleteICON;
