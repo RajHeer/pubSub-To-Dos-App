@@ -128,16 +128,20 @@ article > div {
 #edit_btn, #delete_btn {
     width: 25px;
     top: 10px;
+    transition: width 0.25s;
+}
+
+#edit_btn:hover, #delete_btn:hover {
+    color: orange;
+    width: 30px;
 }
 
 #delete_btn {
     grid-column: 3;
-    right: 5px;
 }
 
 #edit_btn {
     grid-column: 2;
-    right: 40px;
 }
 
 form {
