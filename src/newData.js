@@ -88,7 +88,7 @@ export default (function newData() {
     function getTasksByProj(project) {
         const tasksByProj = [];
         allTaskData.map(task => {
-            task.project === project.innerHTML
+            task.project === project
             ? tasksByProj.push(task)
             : false;
         })

@@ -96,6 +96,7 @@ export default function renderTasks() {
         });
 
         event.trigger("removeProjDivs");
+        
     }
 
     return section;

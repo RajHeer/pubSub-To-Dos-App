@@ -21,22 +21,17 @@ export default function headerWithNav() {
 
     divProjects.addEventListener("click", (e) => {
         divProjects.children.length > 0
-        ? event.trigger ("removeProjDivs", e.target)
+        ? event.trigger ("removeProjDivs")
         : event.trigger("getProjectsList");
     });
 
     event.on("removeProjDivs", removeProjDivs);
 
-    function removeProjDivs(target) {
-        if (!target) {
-            while (divProjects.firstChild) {
-                divProjects.removeChild(divProjects.firstChild);
-            }
-            divProjects.innerText = "Projects";
+    function removeProjDivs() {
+        while (divProjects.firstChild) {
+            divProjects.removeChild(divProjects.firstChild);
         }
-        else if (target.className === "proj_div") {
-            event.trigger("getProjectsList", target);
-        } 
+            divProjects.innerText = "Projects";
     }
 
     event.on("showProjDivs", showProjDivs);
