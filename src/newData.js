@@ -34,9 +34,9 @@ export default (function newData() {
         event.trigger("showManyTasks", allTaskData);
     }
     
-    event.on("dataFromForm", pushData);
+    event.on("dataFromForm", checkForID);
 
-    function pushData(taskData) {
+    function checkForID(taskData) {
         taskData.id 
         ? updateExistingRecord(taskData) 
         : generateIDAndAddNewRecord(taskData);
@@ -54,12 +54,19 @@ export default (function newData() {
         event.trigger("showTask", {task: data});
     }
 
-    event.on("getTaskData", getTask);
+    event.on("getTaskData", getDataForEditFormOrDeleteTask);
 
-    function getTask(taskID) {
+    function getDataForEditFormOrDeleteTask( { taskID, removeTask = "no"} ) {
         allTaskData.filter(task => {
             if (task.id === taskID) {
-                event.trigger("showFormWithRetrievedData", task);
+                if (removeTask === "no") {
+                    event.trigger("showFormWithRetrievedData", task);
+                } else {
+                    task.remove = "yes";
+                    event.trigger("updateTask", task);
+                    let taskToRemove = allTaskData.indexOf(task);
+                    allTaskData.splice(taskToRemove, 1);
+                }
             }
         });
     }

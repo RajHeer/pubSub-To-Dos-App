@@ -26,9 +26,6 @@ export default function renderTasks() {
 
     function renderTask({ task, taskArticle = undefined }) {
 
-        console.log(task);
-        console.log(taskArticle);
-
         if (taskArticle === undefined) {
             const newTaskArticle = document.createElement("article");
             newTaskArticle.setAttribute("id", task.id);
@@ -47,12 +44,15 @@ export default function renderTasks() {
         editBTN.src = editICON;
         editBTN.setAttribute("id", "edit_btn");
         editBTN.addEventListener('click', () => {
-            event.trigger("getTaskData", task.id);
+            event.trigger("getTaskData", {taskID:task.id} );
         });
 
         const deleteBTN = document.createElement("img");
         deleteBTN.src = deleteICON;
         deleteBTN.setAttribute("id", "delete_btn");
+        deleteBTN.addEventListener('click', () => {
+            event.trigger("getTaskData", { taskID:task.id, removeTask: "yes" });
+        });
 
         taskDiv.append ( editBTN, deleteBTN );
         
@@ -73,7 +73,9 @@ export default function renderTasks() {
         const taskDivs = taskArticle.querySelectorAll(".task");
         taskDivs.forEach( div => div.remove() );
 
-        event.trigger("showTask", {task , taskArticle});
+        if (task.remove !== "yes") {
+            event.trigger("showTask", {task , taskArticle});
+        }
     }
 
     event.on("showManyTasks", clearOldTasksThenShowNew);
