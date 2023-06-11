@@ -24,12 +24,19 @@ export default function renderTasks() {
     event.on("showTask", renderTask);
     event.on("updateTask", firstRemoveOldTask);
 
-    function renderTask(task) {
+    function renderTask({ task, taskArticle = undefined }) {
 
-        const taskArticle = document.createElement("article");
-        taskArticle.setAttribute("id", task.id);
-        taskArticle.setAttribute("class", "task_article");
-        taskArticle.dataset.proj_type = task.project;
+        console.log(task);
+        console.log(taskArticle);
+
+        if (taskArticle === undefined) {
+            const newTaskArticle = document.createElement("article");
+            newTaskArticle.setAttribute("id", task.id);
+            newTaskArticle.setAttribute("class", "task_article");
+            newTaskArticle.dataset.proj_type = task.project;
+            taskArticle = newTaskArticle; 
+            section.append( taskArticle );
+        }
 
         const taskDiv = document.createElement("div");
         taskDiv.setAttribute("class", "task");
@@ -59,7 +66,6 @@ export default function renderTasks() {
         compDiv.innerHTML = task["complete"];
 
         taskArticle.append( taskDiv, dueDiv, compDiv );
-        section.append( taskArticle );
     }
 
     function firstRemoveOldTask(task) {
@@ -67,34 +73,7 @@ export default function renderTasks() {
         const taskDivs = taskArticle.querySelectorAll(".task");
         taskDivs.forEach( div => div.remove() );
 
-        const taskDiv = document.createElement("div");
-        taskDiv.setAttribute("class", "task");
-        taskDiv.setAttribute("id", "task_title");
-        taskDiv.innerHTML = task["taskTitle"];
-
-        const editBTN = document.createElement("img");
-        editBTN.src = editICON;
-        editBTN.setAttribute("id", "edit_btn");
-        editBTN.addEventListener('click', () => {
-            event.trigger("getTaskData", task.id);
-        });
-
-        const deleteBTN = document.createElement("img");
-        deleteBTN.src = deleteICON;
-        deleteBTN.setAttribute("id", "delete_btn");
-
-        taskDiv.append ( editBTN, deleteBTN );
-            
-        const dueDiv = document.createElement("div");
-        dueDiv.setAttribute("class", "task");
-        dueDiv.innerHTML = task.dueDate;
-            
-        const compDiv = document.createElement("div");
-        compDiv.setAttribute("class", "task");
-        compDiv.innerHTML = task.complete;
-
-        taskArticle.append( taskDiv, dueDiv, compDiv );
-
+        event.trigger("showTask", {task , taskArticle});
     }
 
     event.on("showManyTasks", clearOldTasksThenShowNew);
@@ -109,7 +88,7 @@ export default function renderTasks() {
         }
 
         manyTasks.map(task => {
-            event.trigger("showTask", task);
+            event.trigger("showTask", {task});
         });
 
         event.trigger("removeProjDivs");

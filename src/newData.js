@@ -51,7 +51,7 @@ export default (function newData() {
     function generateIDAndAddNewRecord(data) {
         data.id = uuid();
         allTaskData.push(data);
-        event.trigger("showTask", data);
+        event.trigger("showTask", {task: data});
     }
 
     event.on("getTaskData", getTask);
