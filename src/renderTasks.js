@@ -73,7 +73,9 @@ export default function renderTasks() {
         const taskDivs = taskArticle.querySelectorAll(".task");
         taskDivs.forEach( div => div.remove() );
 
-        if (task.remove !== "yes") {
+        if (task.remove === "yes") {
+            taskArticle.remove();
+        } else {
             event.trigger("showTask", {task , taskArticle});
         }
     }
