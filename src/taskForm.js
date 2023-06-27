@@ -3,7 +3,7 @@ import event from "./events";
 export default function taskForm() {
     const root = document.documentElement;
     const taskForm = document.createElement("form");
-    taskForm.setAttribute('novalidate', true);
+    taskForm.noValidate = true;
     taskForm.style.display = "none";
     taskForm.innerHTML = `
         <fieldset>
