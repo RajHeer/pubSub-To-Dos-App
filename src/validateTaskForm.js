@@ -25,6 +25,4 @@ export default function validateTaskForm() {
             inputError.textContent = 'Eleven digits'
         }
     };
-
-    
 }

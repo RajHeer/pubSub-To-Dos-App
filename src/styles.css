@@ -162,24 +162,47 @@ fieldset {
 }
 
 label {
+    position: relative;
     margin-bottom: 5px;
 }
 
 input {
     width: 100%;
-    margin-top: 5px;
+    margin: 5px 0 35px;
     border-radius: 5px;
     padding: 5px;
 }
 
-input:last-of-type {
-    margin-bottom: 25px;
+input.invalid {
+    border: solid red;
 }
+
+input:hover {
+    background-color: antiquewhite;
+}
+
+input:focus {
+    outline: none;
+    border: coral 2px solid;
+}
+
+.error {
+    position: absolute;
+    bottom: 15px;
+    display: block;
+    padding: 0;
+    font-size: 90%;
+    color: red;
+  }
+  
+  .error.active {
+    padding: 0.3em;
+  }
 
 button {
     padding: 5px;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin: 20px 0 10px;
 }
 
 footer {
