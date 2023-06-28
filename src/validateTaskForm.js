@@ -1,5 +1,30 @@
 export default function validateTaskForm() {
     const inputs = document.querySelectorAll('input');
+    const submitBTN = document.querySelector('#submit');
 
-    console.log(inputs);
+    submitBTN.addEventListener('click', validate);
+
+    function validate (e) {
+        inputs.forEach(input => {
+            const inputError = input.nextElementSibling;
+            inputError.className = 'error';
+            if (!input.validity.valid) {
+                e.preventDefault();
+                showError(input);
+            }
+        });
+    };
+
+    function showError(input) {
+        const inputError = input.nextElementSibling;
+        if (input.validity.valueMissing) {
+            inputError.textContent = 'Required';
+        } else if (input.validity.typeMismatch) {
+            inputError.textContent = 'Incorrect format';
+        } else if (input.validity.patternMismatch) {
+            inputError.textContent = 'Eleven digits'
+        }
+    };
+
+    
 }

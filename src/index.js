@@ -20,4 +20,4 @@ function component() {
 }
 
 document.body.appendChild(component());
-document.body.appendChild(validateTaskForm());
+validateTaskForm();
