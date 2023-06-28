@@ -12,6 +12,7 @@ module.exports = {
     projects: "./src/projects.js",
     renderTasks: "./src/renderTasks.js",
     taskForm: "./src/taskForm.js",
+    validateTaskForm: "./src/validateTaskForm.js",
     footer: "./src/footer.js",
   },
   devtool: "inline-source-map",

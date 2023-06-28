@@ -3,6 +3,7 @@ import headerWithNav from "./headerWithNav";
 import footer from "./footer";
 import renderTasks from "./renderTasks";
 import taskForm from "./taskForm";
+import validateTaskForm from "./validateTaskForm";
 
 
 function component() {
@@ -19,3 +20,4 @@ function component() {
 }
 
 document.body.appendChild(component());
+document.body.appendChild(validateTaskForm());
