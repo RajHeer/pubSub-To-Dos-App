@@ -12,7 +12,14 @@ export default function validateTaskForm() {
                 e.preventDefault();
                 showError(input);
             }
-        });
+            input.addEventListener('input', () => {
+                if (input.validity.valid) {
+                  inputError.textContent = '';
+                } else {
+                  showError(input);
+                }
+              })
+        });   
     };
 
     function showError(input) {
