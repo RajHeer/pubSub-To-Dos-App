@@ -63,15 +63,17 @@ export default function taskForm() {
     }
 
     function resetForm() {
-        setTimeout( () => {
             taskForm.reset();
             const fieldsetForID = document.querySelector("fieldset");
             fieldsetForID.removeAttribute("id");
             const btn = document.querySelector("#submit");
             btn.innerHTML = "Log Task";
+            const spans = document.querySelectorAll("span");
+            spans.forEach(span =>{
+                span.textContent = "";
+            })
             root.style.setProperty("--form_colour", "rgb(255, 222, 162)");
             taskForm.style.display === "none";
-        }, 250);
     };
 
     event.on("showFormWithRetrievedData", formWithRetrievedData);
