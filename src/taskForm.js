@@ -109,6 +109,9 @@ export default function taskForm() {
             root.style.setProperty("--form_colour", "ghostwhite");
             const btn = document.querySelector("#submit");
             btn.style.visibility = "hidden";
+            allInputs.forEach(input => {
+                input.setAttribute("readonly", true);
+            })
         }
     }
 
