@@ -43,7 +43,7 @@ export default function headerWithNav() {
     const divTasks = document.createElement("div");
     divTasks.setAttribute("id", "tasks");
     divTasks.setAttribute("class", "hexagon");
-    divTasks.innerText = "All tasks";
+    divTasks.innerText = "Show All";
     divTasks.addEventListener("click", () => {
         event.trigger("getAllTasks", null);
     });

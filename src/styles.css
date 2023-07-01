@@ -121,8 +121,14 @@ article > div {
 
 #task_title {
     display: grid;
-    grid-template-columns: 1fr 30px 30px;
+    grid-template-columns: 1fr 30px 30px 30px;
 
+}
+
+#read_btn {
+    width: 25px;
+    top: 20px;
+    transition: width 0.25s;
 }
 
 #edit_btn, #delete_btn {
@@ -131,16 +137,19 @@ article > div {
     transition: width 0.25s;
 }
 
-#edit_btn:hover, #delete_btn:hover {
-    color: orange;
+#read_btn:hover, #edit_btn:hover, #delete_btn:hover {
     width: 30px;
 }
 
 #delete_btn {
-    grid-column: 3;
+    grid-column: 4;
 }
 
 #edit_btn {
+    grid-column: 3;
+}
+
+#read_btn {
     grid-column: 2;
 }
 
@@ -178,7 +187,7 @@ input.invalid {
 }
 
 input:hover {
-    background-color: antiquewhite;
+    background-color: azure;
 }
 
 input:focus {

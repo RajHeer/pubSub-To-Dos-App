@@ -1,4 +1,5 @@
 import event from "./events";
+import readICON from "./file.png"
 import deleteICON from "./delete.png";
 import editICON from "./edit.png";
 
@@ -13,7 +14,7 @@ export default function renderTasks() {
     taskTitle.setAttribute("class", "titles");
     dueTitle.setAttribute("class", "titles");
     compTitle.setAttribute("class","titles");
-    taskTitle.innerHTML = "TASK - click item for full detail";
+    taskTitle.innerHTML = "TASK";
     dueTitle.innerHTML = "DUE";
     compTitle.innerHTML = "DONE?";
 
@@ -40,21 +41,28 @@ export default function renderTasks() {
         taskDiv.setAttribute("id", "task_title");
         taskDiv.innerHTML = task["taskTitle"];
 
+        const readBTN = document.createElement("img");
+        readBTN.src = readICON;
+        readBTN.setAttribute("id", "read_btn");
+        readBTN.addEventListener('click', () => {
+            event.trigger("getTaskData", {taskID: task.id, readTask: "yes"} );
+        });
+        
         const editBTN = document.createElement("img");
         editBTN.src = editICON;
         editBTN.setAttribute("id", "edit_btn");
         editBTN.addEventListener('click', () => {
-            event.trigger("getTaskData", {taskID:task.id} );
+            event.trigger("getTaskData", {taskID: task.id} );
         });
 
         const deleteBTN = document.createElement("img");
         deleteBTN.src = deleteICON;
         deleteBTN.setAttribute("id", "delete_btn");
         deleteBTN.addEventListener('click', () => {
-            event.trigger("getTaskData", { taskID:task.id, removeTask: "yes" });
+            event.trigger("getTaskData", { taskID: task.id, removeTask: "yes" });
         });
 
-        taskDiv.append ( editBTN, deleteBTN );
+        taskDiv.append ( readBTN, editBTN, deleteBTN );
         
             
         const dueDiv = document.createElement("div");

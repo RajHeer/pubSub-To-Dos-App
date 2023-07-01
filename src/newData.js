@@ -56,11 +56,15 @@ export default (function newData() {
 
     event.on("getTaskData", getDataForEditFormOrDeleteTask);
 
-    function getDataForEditFormOrDeleteTask( { taskID, removeTask = "no"} ) {
+    function getDataForEditFormOrDeleteTask( { taskID, removeTask = "no", readTask = "no"} ) {
         allTaskData.filter(task => {
             if (task.id === taskID) {
                 if (removeTask === "no") {
-                    event.trigger("showFormWithRetrievedData", task);
+                    if (readTask === "no") {
+                        event.trigger("showFormWithRetrievedData", {retrievedTaskData: task});
+                    } else {
+                        event.trigger("showFormWithRetrievedData", {retrievedTaskData: task, readTask: "yes"});
+                    }
                 } else {
                     task.remove = "yes";
                     event.trigger("updateTask", task);

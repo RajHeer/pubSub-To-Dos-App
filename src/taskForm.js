@@ -67,6 +67,7 @@ export default function taskForm() {
             const fieldsetForID = document.querySelector("fieldset");
             fieldsetForID.removeAttribute("id");
             const btn = document.querySelector("#submit");
+            btn.style.visibility = "visible";
             btn.innerHTML = "Log Task";
             const spans = document.querySelectorAll("span");
             spans.forEach(span =>{
@@ -78,7 +79,7 @@ export default function taskForm() {
 
     event.on("showFormWithRetrievedData", formWithRetrievedData);
 
-    function formWithRetrievedData(retrievedTaskData) {
+    function formWithRetrievedData( {retrievedTaskData, readTask = "no"}) {
         
         // TOGGLES '+'/'-' WHEN EDIT FORM IS FIRST DISPLAYED ONLY
         const formColour = getComputedStyle(root).getPropertyValue("--form_colour");
@@ -102,7 +103,13 @@ export default function taskForm() {
         fieldsetForID.setAttribute("id", retrievedTaskData.id);
     
         const btn = document.querySelector("#submit");
-        btn.innerHTML = "Click to save any updates";
+        btn.innerHTML = "Save Updates";
+
+        if (readTask === "yes") {
+            root.style.setProperty("--form_colour", "ghostwhite");
+            const btn = document.querySelector("#submit");
+            btn.style.visibility = "hidden";
+        }
     }
 
     return taskForm;
