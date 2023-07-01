@@ -186,13 +186,9 @@ input.invalid {
     border: solid red;
 }
 
-input:hover {
-    background-color: azure;
-}
-
 input:focus {
     outline: none;
-    border: coral 2px solid;
+    border: orange 2px solid;
 }
 
 .error {
@@ -204,9 +200,43 @@ input:focus {
     color: red;
   }
   
-  .error.active {
+.error.active {
     padding: 0.3em;
-  }
+}
+
+[type='checkbox'] {
+    -webkit-appearance: none;
+    position: relative;
+    margin-top: 5px;
+    width: 50px;
+    height: 30px;
+    border-radius: 25px;
+    background-color: #ccc;
+    transition: background .3s;
+    outline: none;
+    cursor: pointer;
+}
+  
+[type='checkbox']::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    height: 1.25rem;
+    width: 1.25rem;
+    background-color: rgb(255, 255, 255);
+    transition: left .3s;
+}
+  
+[type='checkbox']:checked {
+    background-color: orange;
+}
+  
+[type='checkbox']:checked::after {
+    left: 70%;
+}
 
 button {
     padding: 5px;
