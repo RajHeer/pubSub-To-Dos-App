@@ -19,7 +19,7 @@ export default (function newData() {
             description: "Wash, wax,",
             dueDate: "Saturday",
             rating: "Red",
-            complete: false,
+            complete: true,
             project: "Garage"
         }
     ];

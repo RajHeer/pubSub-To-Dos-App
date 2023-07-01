@@ -71,7 +71,15 @@ export default function renderTasks() {
             
         const compDiv = document.createElement("div");
         compDiv.setAttribute("class", "task");
-        compDiv.innerHTML = task["complete"];
+        const compToggle = document.createElement("input");
+        compToggle.setAttribute("id", "toggle");
+        compToggle.setAttribute("type", "checkbox");
+        if (task.complete === true) {
+            compToggle.checked = true;
+        }
+        compDiv.append(compToggle);
+        
+        // compDiv.innerHTML = task["complete"];
 
         taskArticle.append( taskDiv, dueDiv, compDiv );
     }
