@@ -8,7 +8,7 @@ export default function taskForm() {
     taskForm.innerHTML = `
         <fieldset>
             <label for="task_title">Task title
-                <input type="text" name="taskTitle" id="task_title" class="form_input" required>
+                <input type="text" name="task_title" id="task_title" class="form_input" required>
                 <span class="error"></span>
             </label>
 
@@ -18,7 +18,7 @@ export default function taskForm() {
             </label>
 
             <label for="due_date">Due date
-                <input type="text" name="dueDate" id="due_date" class="form_input" required>
+                <input type="text" name="due_date" id="due_date" class="form_input" required>
                 <span class="error"></span>
             </label>
 

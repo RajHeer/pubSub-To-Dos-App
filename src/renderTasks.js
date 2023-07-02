@@ -72,14 +72,19 @@ export default function renderTasks() {
         const compDiv = document.createElement("div");
         compDiv.setAttribute("class", "task");
         const compToggle = document.createElement("input");
-        compToggle.setAttribute("id", "toggle");
+        compToggle.setAttribute("id", `toggle-${task.id}`);
         compToggle.setAttribute("type", "checkbox");
         if (task.complete === true) {
             compToggle.checked = true;
         }
+        compToggle.addEventListener("change", () =>{
+            if (compToggle.checked === true) {
+                event.trigger("taskStatusChange", {taskID: task.id, complete: true});
+            } else {
+                event.trigger("taskStatusChange", {taskID: task.id, complete: false});
+            }
+        });
         compDiv.append(compToggle);
-        
-        // compDiv.innerHTML = task["complete"];
 
         taskArticle.append( taskDiv, dueDiv, compDiv );
     }

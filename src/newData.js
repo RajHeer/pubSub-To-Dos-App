@@ -75,6 +75,16 @@ export default (function newData() {
         });
     }
 
+    event.on("taskStatusChange", changeTaskStatus);
+
+    function changeTaskStatus( {taskID, complete = false} ) {
+        allTaskData.filter(task => {
+            if (task.id === taskID) {
+                task.complete = complete;
+            }
+        });
+    }
+
     event.on("getProjectsList", getProjList);
 
     function getProjList() {
