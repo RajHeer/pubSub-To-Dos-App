@@ -254,12 +254,14 @@ footer {
     top: 90vh;
     margin: 2vh 5vw 0 5vw;
     height: 15vh;
-    display: flex;
-    justify-content:flex-end; 
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto 70px;
+    justify-items: center; 
+    align-items: center; 
 }
 
 #add_circle {
+    grid-column: 2;
     width: 50px;
     height: 50px;
     border: solid orange;
