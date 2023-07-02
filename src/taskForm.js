@@ -8,27 +8,27 @@ export default function taskForm() {
     taskForm.innerHTML = `
         <fieldset>
             <label for="task_title">Task title
-                <input type="text" name="taskTitle" id="task_title" required>
+                <input type="text" name="taskTitle" id="task_title" class="form_input" required>
                 <span class="error"></span>
             </label>
 
             <label for="description">Description
-                <input type="text" name="description" id="description" required>
+                <input type="text" name="description" id="description" class="form_input" required>
                 <span class="error"></span>
             </label>
 
             <label for="due_date">Due date
-                <input type="text" name="dueDate" id="due_date" required>
+                <input type="text" name="dueDate" id="due_date" class="form_input" required>
                 <span class="error"></span>
             </label>
 
             <label for="rating">Rating
-                <input type="text" name="rating" id="rating" required>
+                <input type="text" name="rating" id="rating" class="form_input" required>
                 <span class="error"></span>
             </label>
 
             <label for="project">Project
-                <input type="text" name="project" id="project" required>
+                <input type="text" name="project" id="project" class="form_input" required>
                 <span class="error"></span>
             </label>
             <button type="submit" id="submit">Log Task</button>
@@ -90,7 +90,7 @@ export default function taskForm() {
         root.style.setProperty("--form_colour", "lightblue");
         taskForm.style.display = "block";
 
-        const allInputs = document.querySelectorAll("input");
+        const allInputs = document.getElementsByClassName("form_input");
         const fieldsetForID = document.querySelector("fieldset");
 
         allInputs[0].value = retrievedTaskData.taskTitle;
