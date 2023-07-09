@@ -8,7 +8,7 @@ export default function taskForm() {
     taskForm.innerHTML = `
         <fieldset>
             <label for="task_title">Task title
-                <input type="text" name="task_title" id="task_title" class="form_input" required>
+                <input type="text" name="taskTitle" id="task_title" class="form_input" required>
                 <span class="error"></span>
             </label>
 
@@ -18,7 +18,7 @@ export default function taskForm() {
             </label>
 
             <label for="due_date">Due date
-                <input type="text" name="due_date" id="due_date" class="form_input" required>
+                <input type="text" name="dueDate" id="due_date" class="form_input" required>
                 <span class="error"></span>
             </label>
 
@@ -73,6 +73,10 @@ export default function taskForm() {
             spans.forEach(span =>{
                 span.textContent = "";
             })
+            const allInputs = document.getElementsByClassName("form_input");
+            for (let input of allInputs) {
+                input.removeAttribute("readonly");
+            };
             root.style.setProperty("--form_colour", "rgb(255, 222, 162)");
             taskForm.style.display === "none";
     };
