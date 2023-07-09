@@ -57,7 +57,8 @@ export default function taskForm() {
         for (const pair of formData.entries()) {
           sendFormData[pair[0]]=pair[1];
         }
-        sendFormData.complete = "false";
+        let togChecked = document.getElementById(`toggle-${id}`).checked;
+        togChecked ? sendFormData.complete = togChecked : sendFormData.complete = false;
 
         event.trigger("dataFromForm", sendFormData);
     }
