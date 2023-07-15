@@ -25,6 +25,7 @@ export default (function newData() {
     ];
     
     let storage = window.localStorage;
+    storage.removeItem("allData");
    
     // On init displays sample data above 
     // and set storage
@@ -45,7 +46,6 @@ export default (function newData() {
     function setStorage() {
         let allDataJSON = JSON.stringify(allTaskData);
         storage.setItem("allData", allDataJSON);
-        console.log(storage.allData);
     }
     
     event.on("getAllTasks", getAllTasks);

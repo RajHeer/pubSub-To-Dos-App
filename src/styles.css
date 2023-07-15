@@ -89,6 +89,14 @@ nav > div {
     border-top: 28.8675px solid orange;
 }
 
+#projects, #tasks {
+    transition: font-size 0.25s;
+}
+
+#projects:hover, #tasks:hover {
+    font-size: 20px;
+}
+
 .proj_div {
     border: solid orange 3px;
     border-radius: 5px;
@@ -269,5 +277,12 @@ footer {
     background: orange;
     border-radius: 50%;
     font-size: 3.5rem;
+    transition: font-size 0.25s, width 0.25s, height 0.25s;
     line-height: 1.6rem;
+}
+
+#add_circle:hover {
+    font-size: 4rem;
+    width: 60px;
+    height: 60px;
   }
