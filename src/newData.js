@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 
 export default (function newData() {
 
-    const allTaskData = [ 
+    let allTaskData = [ 
         {
             id: uuid(),
             taskTitle: "Mow grass",
@@ -24,10 +24,30 @@ export default (function newData() {
         }
     ];
     
-    // On init displays sample data above
-    getAllTasks();
-    
+    let storage = window.localStorage;
+   
+    // On init displays sample data above 
+    // and set storage
 
+    initStorage();
+
+    function initStorage() {
+        if (storage.length === 0) {
+            setStorage();
+        } else {
+            let retrievedStorage = storage.getItem("allData");
+            let allDataParsed = JSON.parse(retrievedStorage);
+            allTaskData = allDataParsed;
+        }
+        getAllTasks();
+    }
+
+    function setStorage() {
+        let allDataJSON = JSON.stringify(allTaskData);
+        storage.setItem("allData", allDataJSON);
+        console.log(storage.allData);
+    }
+    
     event.on("getAllTasks", getAllTasks);
 
     function getAllTasks() {
@@ -45,12 +65,14 @@ export default (function newData() {
     function updateExistingRecord(data) {
         const indexForUpdate = allTaskData.findIndex(task => task.id === data.id);
         allTaskData[indexForUpdate] = data;
+        setStorage();
         event.trigger("updateTask", data);
     }
 
     function generateIDAndAddNewRecord(data) {
         data.id = uuid();
         allTaskData.push(data);
+        setStorage();
         event.trigger("showTask", {task: data});
     }
 
@@ -70,6 +92,7 @@ export default (function newData() {
                     event.trigger("updateTask", task);
                     let taskToRemove = allTaskData.indexOf(task);
                     allTaskData.splice(taskToRemove, 1);
+                    setStorage();
                 }
             }
         });
@@ -81,6 +104,7 @@ export default (function newData() {
         allTaskData.filter(task => {
             if (task.id === taskID) {
                 task.complete = complete;
+                setStorage();
             }
         });
     }
