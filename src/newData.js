@@ -25,10 +25,10 @@ export default (function newData() {
     ];
     
     let storage = window.localStorage;
-    storage.removeItem("allData");
+    // storage.removeItem("allData");
    
     // On init displays sample data above 
-    // and set storage
+    // and sets storage
 
     initStorage();
 
@@ -54,6 +54,12 @@ export default (function newData() {
         event.trigger("showManyTasks", allTaskData);
     }
     
+    
+    // When data via form is received
+    // checks for an ID then either 
+    // looks up existing record and updates
+    // or generates a new ID for new record
+
     event.on("dataFromForm", checkForID);
 
     function checkForID(taskData) {
@@ -109,6 +115,10 @@ export default (function newData() {
         });
     }
 
+    // Generates list of all projects
+    // to then send to corresponding
+    // drop down menu
+
     event.on("getProjectsList", getProjList);
 
     function getProjList() {
@@ -121,6 +131,10 @@ export default (function newData() {
         event.trigger("makeProjDivs", projList);
     }
 
+    // Takes all data (tasks) corresponding 
+    // to selected project and then 
+    // send just these for rendering
+    
     event.on("getTasksByProject", getTasksByProj);
 
     function getTasksByProj(project) {

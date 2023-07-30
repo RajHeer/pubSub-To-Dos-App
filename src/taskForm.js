@@ -63,7 +63,8 @@ export default function taskForm() {
         } else {
             sendFormData.complete = togChecked.checked;
         }
-
+        // Sends to newData for record updating
+        // or creation of a new record
         event.trigger("dataFromForm", sendFormData);
     }
 
@@ -86,6 +87,9 @@ export default function taskForm() {
             taskForm.style.display === "none";
     };
 
+    // Form with editable or readonly data
+    // dependng on which icon selected
+    // on UI
     event.on("showFormWithRetrievedData", formWithRetrievedData);
 
     function formWithRetrievedData( {retrievedTaskData, readTask = "no"}) {
@@ -114,6 +118,9 @@ export default function taskForm() {
         const btn = document.querySelector("#submit");
         btn.innerHTML = "Save Updates";
 
+        // Different colour form and 
+        // no submit button for 
+        // reading task
         if (readTask === "yes") {
             root.style.setProperty("--form_colour", "ghostwhite");
             const btn = document.querySelector("#submit");
