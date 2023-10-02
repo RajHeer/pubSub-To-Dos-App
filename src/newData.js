@@ -29,7 +29,7 @@ export default (function newData() {
    
     // On init displays sample data above 
     // and sets storage
-
+ 
     initStorage();
 
     function initStorage() {
